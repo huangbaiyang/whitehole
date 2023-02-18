@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 70px;
+        }
+
+        span {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span id="hour">1</span>
+        <span id="minute">2</span>
+        <span id="second">3</span>
+    </div>
+    <button>清除定时器</button>
+    <script>
+        let btn = document.querySelector('button')
+        let hour = document.querySelector('#hour')
+        let minute = document.querySelector('#minute')
+        let second = document.querySelector('#second')
+        let inputTime = +new Date('2023-2-17 21:00:00')//返回指定时间总的毫秒数
+        // console.log(inputTime);
+        countDown();
+        function countDown() {
+            let nowTime = +new Date();//返回当前时间总的毫秒数
+            // console.log(nowTime);
+            let times = (inputTime - nowTime) / 1000;
+            // console.log(times);
+            let h = parseInt(times / 60 / 60 % 24)
+            hour.innerHTML = h < 10 ? `0${h}` : h
+            // console.log(h);
+            let m = parseInt(times / 60 % 60)
+            minute.innerHTML = m < 10 ? `0${m}` : m
+            // console.log(m);
+            let s = parseInt(times % 60)
+            second.innerHTML = s < 10 ? `0${s}` : s
+            // console.log(s);
+        }
+        let timer = setInterval(countDown, 1000);
+        btn.addEventListener('click', function () {
+            clearInterval(timer)
+        })
+    </script>
+    手机号码：<input type="text">
+    <button class="pushmsg">发送</button>
+
+    <script>
+        let pushmsg = document.querySelector('.pushmsg');
+        let restsecond = 1;
+        pushmsg.addEventListener('click', function () {
+            let timer1 = setInterval(function () {
+                if (restsecond < 0) {
+                    clearInterval(timer1);
+                    pushmsg.disabled = false;
+                    pushmsg.innerHTML = '发送';
+                    restsecond = 1;
+                } else {
+                    pushmsg.disabled = true;
+                    pushmsg.innerHTML = `剩余${restsecond}秒`;
+                    restsecond --;
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

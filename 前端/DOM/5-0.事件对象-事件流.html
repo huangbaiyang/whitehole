@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .father {
+            position: relative;
+            border: 1px solid;
+        }
+        .son {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="father" style="background-color: brown; width: 100px; height: 100px;">
+        爸爸
+        <div class="son" style="background-color: aqua;width: 50px;">
+            儿子
+            <div class="sun" style="background-color: pink;width: 50px;">
+                孙子
+            </div>
+        </div>
+    </div>
+    <script>
+        let father = document.querySelector('.father')
+        let son = document.querySelector('.son')
+        let sun = document.querySelector('.sun')
+        father.addEventListener('click', function (e) {
+            // console.log(`爸爸的e.target是`,e.target);
+            // console.log(`爸爸的this是`,this);
+            if (e.target === father) console.log('爸爸');
+            if (e.target === son) console.log('爸爸的儿子');
+            if (e.target === sun) console.log('爸爸的孙子');
+            // e.stopPropagation();//阻止事件冒泡
+        }, false)
+        // son.addEventListener('click',function(e){
+        // console.log('儿子');
+        // // e.stopPropagation();
+        // }, false)
+        // sun.addEventListener('click',function(e){
+        // console.log('孙子');
+        // console.log(e.type);
+        // // e.stopPropagation();//阻止事件冒泡
+        // }, false)
+        // sun.addEventListener('contextmenu',function(e){
+        //     console.log(e.type);
+        //     e.preventDefault();//阻止右键查看菜单
+        // }, false)
+        // father.addEventListener('mouseover',function(e){
+        //     console.log('爸爸的mouseover');
+        // });
+        father.addEventListener('mouseenter', function () {
+            console.log('爸爸的mouseENTER');
+        })
+
+    </script>
+</body>
+
+</html>

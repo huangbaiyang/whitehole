@@ -1,0 +1,30 @@
+/* @import{} */
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+/* div {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+} */
+
+#shit {
+    text-transform: capitalize;
+    color: rgba(999, 0, 0, 1);
+    opacity: 0.3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-orient-clamp:1;
+    overflow: hidden;
+}
+
+.talk {
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: capitalize;
+}

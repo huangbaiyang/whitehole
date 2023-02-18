@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="foot">底部区</div>
+    <div class="content">内容区</div>
+    <ul id="num">
+        <li>生僻字1</li>
+        <li>生僻字2</li>
+        <li>生僻字3</li> 
+    </ul>
+    <ol class="artical">
+        <li>知否知否，应是等你好久1</li>
+        <li>知否知否，应是等你好久2</li>
+        <li>知否知否，应是等你好久3</li>
+    </ol>
+    <script async>
+        let res1 = document.getElementById('foot')
+        let res4 = document.querySelector('li')
+        console.log(res1,Object.prototype.toString.call(res1));
+        console.log(res4,Object.prototype.toString.call(res4))
+    </script>
+    <script>
+        let res2 = document.getElementsByClassName('artical')
+        let res3 = document.getElementsByTagName('li')
+        let res5 = document.querySelectorAll('li')
+        console.log(res2[0].getElementsByTagName('li'),Object.prototype.toString.call(res2))
+        console.log(res3,Object.prototype.toString.call(res3))
+        console.log(res5,Object.prototype.toString.call(res5))
+    </script>
+    <script>
+        let res6 = document.body;
+        let res7 = document.documentElement;
+        console.log(res6,Object.prototype.toString.call(res6))
+        console.log(res7,Object.prototype.toString.call(res7))
+    </script>
+</body>
+
+</html>

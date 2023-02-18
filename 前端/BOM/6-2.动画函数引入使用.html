@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .silderbar {
+            float: right;
+            position: relative;
+            right: -200px;
+            width: 400px;
+            height: 26px;
+            /* border: 1px solid; */
+            /* margin-left: 656px; */
+
+        }
+
+        span {
+            position: absolute;
+            left: 160px;
+            width: 40px;
+            background-color: red;
+        }
+
+        .con {
+            /* display: none; */
+            position: absolute;
+            left: 200px;
+            z-index: -1;
+            top: 0;
+            /* margin-left: 200px; */
+            text-align: center;
+            width: 200px;
+            background-color: aqua;
+        }
+    </style>
+    <script src="./6-1.缓动动画函数封装.js"></script>
+</head>
+
+<body>
+    <div class="silderbar">
+        <span>〈一 </span>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        let silderbar = document.querySelector('.silderbar');
+        let con = document.querySelector('.con');
+        let span = document.querySelector('span')
+
+        silderbar.addEventListener('mouseenter', function () {
+            startMove(con, 0, function () {
+                span.innerHTML = '一〉'
+
+            });
+        })
+        silderbar.addEventListener('mouseleave', function () {
+            startMove(con, 200, function () {
+                span.innerHTML = '〈一'
+
+            })
+        })
+    </script>
+</body>
+
+</html>

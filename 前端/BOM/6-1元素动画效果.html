@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .move {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: aqua;
+            width: 50px;
+            height: 50px;
+        }
+
+        .flyman {
+            position: absolute;
+            left: 0;
+            top: 60px;
+            background-color: brown;
+            width: 50px;
+            height: 50px;
+        }
+
+        .btn {
+            position: absolute;
+            top: 200px;
+        }
+
+        .goback {
+            position: absolute;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="move">小黄</div>
+    <span class="flyman">刘翔</span>
+    <button class="btn">往前走</button>
+    <button class="goback">往后走</button>
+    <script>
+        //1.函数封装动画效果代码
+        function startMove(obj, target,callback) {
+            //3.开启动画前先清除上次启动的定时器（避免重复开启定时器导致异常）
+            clearInterval(obj.timer);
+            //2.给不同对象绑定唯一的定时器（减少内存）
+            obj.timer = setInterval(function () {
+                //4.制作缓动动画效果，
+                let step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if(callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px'
+            }, 10)
+        }
+        let move = document.querySelector('.move');
+        let flyman = document.querySelector('.flyman');
+        let btn = document.querySelector('.btn');
+        let goback = document.querySelector('.goback');
+
+
+        // move.addEventListener('click', () => {
+        //     startMove(move, 600,10);
+        // })
+        // flyman.addEventListener('click', () => {
+        //     startMove(flyman, 600,50);
+        // })
+
+        btn.addEventListener('click', function () {
+            startMove(move, 800,function () {
+                move.style.backgroundColor = 'red'
+            });
+        })
+        goback.addEventListener('click', function () {
+            startMove(move, 500,function () {
+                move.style.backgroundColor = 'green'
+            });
+        })
+    </script>
+</body>
+
+</html>

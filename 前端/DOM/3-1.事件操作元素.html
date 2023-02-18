@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            font-size: 50px;
+            background-color: red;
+        }
+    </style>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .sprite {
+            width: 239px;
+            height: 200px;
+            margin: 100px auto;
+
+        }
+
+        .sprite li {
+            float: left;
+            width: 79.5px;
+            height: 65px;
+            margin: 0;
+            text-align: center;
+            background-color: pink;
+            background: url(./images/精灵图-刘德华.png) no-repeat;
+            background-position: 0;
+        }
+    </style>
+
+
+    <style>
+        .register {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <i class="close">x</i>
+        <img src="./images/淘宝二维码图片.png" alt="" id="picture">
+    </div>
+    <script>
+        let btn = document.querySelector('.close');
+        let box = document.querySelector('.box');
+        btn.onclick = function () {
+            box.style.display = 'none';
+        }
+    </script>
+
+
+    <div class="sprite">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('li')
+        console.log(lis);
+        // for(let i = 0; i < lis.length; i++){
+        //     lis[i].style.backgroundPosition = '79.5 159';
+        // }
+    </script>
+
+
+    <div class="register">
+        <input type="password" class="ipt" value="">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+        let ipt = document.querySelector('.ipt');
+        let mes = document.querySelector('.message');
+        ipt.onblur = function () {
+            if (ipt.value.length < 6 || ipt.value.length > 16) {
+                mes.style.color = 'red';
+                mes.style.background = 'url(./images/密码提示错误小图标.png) no-repeat left center';
+            } else if (ipt.value.length >= 6 && ipt.value.length <= 16) {
+                mes.style.color = 'green';
+                mes.style.background = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

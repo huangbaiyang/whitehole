@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发射留言</button>
+    <ul></ul>
+    <script>
+        let text = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        btn.onclick = function () {
+            let newli = document.createElement('li');
+            if (text.value == '') {
+                alert('评论为空！')
+            } else {
+                newli.innerHTML = text.value;
+                ul.insertBefore(newli, ul.children[0])
+            }
+        }
+        text.addEventListener('keydown', function (e) {
+            // console.log(e+'asdfasdf ');
+            if (e.key == 'Enter') btn.onclick();
+        })
+        text.addEventListener('keyup', function (e) {
+            if (e.key == 'Enter') text.value = '';
+        })
+    </script>
+</body>
+
+</html>

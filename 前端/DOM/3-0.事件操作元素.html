@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 一、改变元素内容 -->
+    <div>null</div>
+    <div>妙啊</div>
+    <div>今天是何年何月？</div>
+    <button>变</button>
+    <script>
+        let box = document.querySelectorAll('div')
+        let btn = document.getElementsByTagName("button")
+        let weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六',]
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let day = date.getDate();
+        let week = date.getDay();
+        let hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+        let min = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+        let second = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+        // console.log(hour);
+        btn[0].onclick = function () {
+            box[0].innerHTML = '<strong>一年四季如风</strong>';
+            // console.log(box[0].innerHTML);
+            box[1].innerText = '<span>赏花赏月赏秋香</span>';
+            box[2].innerHTML = `今天是${year}年${month}月${day}日 ${weeks[week]}${hour}:${min}:${second}`
+
+        }
+    </script>
+    <!-- 二、改变元素的属性 -->
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <button id="shift">切换天王</button>
+    <button onclick=stop()>停！！！</button>
+    <img src="./images/刘德华.webp" alt="" title="刘德华" height="200">
+    <script> 
+        let ldh = document.getElementById('ldh')
+        let zxy = document.getElementById('zxy')
+        let shift = document.getElementById('shift')
+        let img = document.querySelector('img');
+        // console.dir(img);
+        let bool = true;
+        ldh.onclick = (e) => {
+            console.log(e);
+            img.src = "images/刘德华.webp";
+            img.title = '刘德华'
+        }
+        zxy.onclick = (e) => {
+            console.log(e);
+            img.src = "images/张学友.jpg";
+            img.title = '张学友'
+        }
+        shift.onclick = function (e) {
+            console.log(e);
+            img.src = bool ? "images/张学友.jpg" : "images/刘德华.webp";
+            bool = !bool;
+        }
+        let sec = (new Date()).getSeconds;
+        let timer = setInterval((e) => {
+            // console.log(e);
+            img.src = bool ? "images/张学友.jpg" : "images/刘德华.webp";
+            bool = !bool;
+        }, 1000)
+        function stop(e) {
+            console.log(e);
+            clearInterval(timer)
+        }
+    </script>
+</body>
+
+</html>

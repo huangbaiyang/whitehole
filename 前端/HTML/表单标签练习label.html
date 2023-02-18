@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- label的第一种设置方式：表单标签设置id属性，label标签设置for属性的值为id的值 -->
+    性别：<input type="radio" name="sex" id="man"><label for="man">男</label><input type="radio" name="sex" id="woman"><label for="woman">女</label>
+    <br>
+    <br>
+    <!-- label的第二种设置方式：用label标签直接将表单标签包裹起来，然后删除label的for属性 -->
+    性别：<label ><input type="radio" name="sex">男</label><label><input type="radio" name="sex">女</label>
+
+</body>
+</html>

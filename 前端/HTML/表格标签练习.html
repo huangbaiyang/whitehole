@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>广东</td>
+            <td>12万亿</td>
+            <td>中国超级强省</td>
+        </tr>
+        <tr>
+            <td>广西</td>
+            <td>2万亿</td>
+            <td>两广兄弟一家亲</td>
+        </tr>
+        <tr>
+            <td>福建</td>
+            <td>3万亿</td>
+            <td>广东人不吃福建人</td>
+        </tr>
+    </table>
+    <br>
+    <table style="border: 1px red solid" border="1">
+        <caption><strong>中国省份介绍</strong></caption>
+        <br />
+        <tr>
+            <th>省份</th>
+            <th>GDP</th>
+            <th>简介</th>
+        </tr>
+        <tr>
+            <td>广东</td>
+            <td>12万亿</td>
+            <td>中国超级强省</td>
+        </tr>
+        <tr>
+            <td>广西</td>
+            <td>2万亿</td>
+            <td>两广兄弟一家亲</td>
+        </tr>
+        <tr>
+            <td>福建</td>
+            <td>3万亿</td>
+            <td>广东人不吃福建人</td>
+        </tr>
+    </table>
+    <br>
+    <table style="border: 1px blue solid" border="1">
+        <caption><strong>中国省份介绍</strong></caption>
+        <br />
+        <thead>
+            <tr>
+                <th>省份</th>
+                <th>GDP</th>
+                <th>简介</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>广东</td>
+                <td>12万亿</td>
+                <td>中国超级强省</td>
+            </tr>
+            <tr>
+                <td>广西</td>
+                <td>2万亿</td>
+                <td>两广兄弟一家亲</td>
+            </tr>
+            <tr>
+                <td>福建</td>
+                <td>3万亿</td>
+                <td>广东人不吃福建人</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>总结</td>
+                <td>老大哥就是强</td>
+                <td>希望祖国繁荣昌盛</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <!-- 合并单元格：左上原则：合并时只保留最上面或者最左边的格子；注意：不能跨结构合并，如thead、tbody、tfoot之间的合并 -->
+    <!-- 跨行合并 属性名rowspan -->
+    <!-- 跨列合并 属性名colspan -->
+    <table border="1">
+        <tr>
+            <td>广东</td>
+            <td rowspan="2">12万亿</td>
+            <td>中国超级强省</td>
+        </tr>
+        <tr>
+            <td>广西</td>
+            <!-- <td>2万亿</td> -->
+            <td>两广兄弟一家亲</td>
+        </tr>
+        <tr>
+            <td colspan="2">福建</td>
+            <!-- <td>3万亿</td> -->
+            <td>广东人不吃福建人</td>
+        </tr>
+    </table>
+</body>
+
+</html>
